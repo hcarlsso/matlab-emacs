@@ -114,8 +114,9 @@
   ;; `default-fill-column' is an obsolete variable (as of 23.2); use `fill-column' instead.
   (cond ((boundp 'fill-column)
          (defvaralias 'matlab-fill-column 'fill-column))
-        (t
-         (defvaralias 'matlab-fill-column 'default-fill-column)))
+        ;(t
+        ; (defvaralias 'matlab-fill-column 'default-fill-column))
+        )
 
   ;; `interactive-p' is an obsolete function (as of 23.2); use `called-interactively-p' instead.
   (defun matlab-called-interactively-p-helper ()
@@ -5207,7 +5208,7 @@ information for item at point"
       ;; last-cmd "! mv foo."
       (setq limit-pos (matlab-shell-get-completion-limit-pos last-cmd completions))
       (setq common-substr (substring last-cmd limit-pos))
-      
+
       ;; Mark the subfield of the completion result so we can say no completions
       ;; if there aren't any otherwise we need to remove it.
       (save-excursion
